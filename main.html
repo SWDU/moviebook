@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> TEAM PROJECT "MOVIE BOOKING WEBSITE" </title>
+		<style>
+			#header-title{
+				background-color: red;
+				height: 130px;
+				width: 98%;
+				text-align: right;
+				padding: 1%;
+			}
+			#header-sub{
+				background-color: yellow;
+				height: 100px;
+				width: 100%;
+				text-align: center;
+			}
+			#content{
+				background-color: blue;
+				height: 1000px;
+				width: 100%;
+				text-align: center;
+			}
+			#footer{
+				background-color: aqua;
+				height: 100px;
+				text-align: right;
+				display: table;
+				width: 100%;
+			}
+			#mem-info{
+				display: table-cell;
+				vertical-align: middle;
+				padding-right: 30px;
+			}
+			button.sub{
+				width: 200px;
+				height: 50px;
+				font-size: 18px;
+			}
+		</style>
+		<script>
+			function signInClick(){
+				alert('signInClick success!');
+			}
+			function signUpClick(){
+				alert('signUpClick success!');
+			}
+			function myPageClick(){
+				alert('myPageClick success!');
+			}
+			function movieInfo(){
+				alert('movieInfo success!');
+			}
+			function movieTimeTable(){
+				alert('movieTimeTable success!');
+			}
+			function movieBooking(){
+				alert('movieBooking success!');
+			}
+		</script>
+	</head>
+	<body>
+		<div id="header-title">
+			<center><h1>WELCOME MOVIE BOOKING SITE</h1></center><br/>
+			ID : <input type="text" name="user-id"> PW : <input type="password" name="user-pw">
+			<input type="button" value="SIGN IN" onclick="signInClick()">
+			<input type="button" value="SIGN UP" onclick="signUpClick()">
+			<input type="button" value="MY PAGE" onclick="myPageClick()"><br/>
+		</div>
+		<div id="header-sub"><br/>
+			<button class="sub" onclick="movieInfo()">MOVIE-INFO</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+			<button class="sub" onclick="movieTimeTable()">MOVIE-TIME TABLE</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+			<button class="sub" onclick="movieBooking()">MOVIE-BOOKING</button>
+		</div>
+		<div id="content"><br/>
+			<h1>CONTENT</h1>
+		</div>
+		<div id="footer">
+			<div id="mem-info">
+			SOFTWARE EXPERIMENT 4 TEAM PROJECT<br/>
+			TEAM MEMBER : YESOL KIM, DONGUI KIM, SANGWOOK KIM<br/>
+			@COPYRIGHT 2017-12-**
+			</div>
+		</div>
+	</body>
+</html>
