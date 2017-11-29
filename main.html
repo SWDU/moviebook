@@ -117,7 +117,7 @@
 		        for(var i=0; i<text.length; i++){
 
 		            if(text.charAt(i) != " " && regexp.test(text.charAt(i)) == false ){
-						alert("한글이나 특수문자는 입력불가능 합니다.");
+						alert("You can only use english");
 						return false;
 					}
 		        }
@@ -130,7 +130,7 @@
 				var param = "member_id" + "=" + $("#member_id").val();
 				if($("#member_id").val() == '' || $("#member_id").val()==null)
 				{
-					alert("아이디를 입력하세요");
+					alert("Insert ID");
 					return false;
 				}
 			}
@@ -142,19 +142,19 @@
 				var password_check = document.getElementById('password_check');
 		
 				if (member_id.value == '' || member_id.value == null) {
-					alert('ID를 입력하세요');
+					alert('Insert ID');
 					focus.member_id;
 					return false;
 				}
 
 				if (password.value == '' || password.value == null) {
-					alert('비밀번호를 입력하세요');
+					alert('Insert PASSWORD');
 					focus.password;
 					return false;
 				}
 
 				if (password_check.value == '' || password_check.value == null) {
-					alert('비밀번호확인란을 입력하세요');
+					alert('Insert PASSWORD_CHECK');
 					focus.password_hint;
 					return false;
 				}
@@ -162,7 +162,7 @@
 				/*비밀번호와 비밀번호확인란 같은지 확인*/
 
 				if (password.value != password_check.value){
-					alert("비밀번호와 비밀번호 확인란이 다릅니다.");
+					alert("PASSWORD is different");
 					focus.passowrd;
 					return false;
 				}
@@ -174,7 +174,7 @@
 
 			function save() {
 				 $('.mask, .window').hide();
-				alert("가입이 완료되었습니다.")
+				alert("Complete")
 
 			}
 		</script>
