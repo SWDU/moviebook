@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<title>Time Table</title>
-
 		<style>
 			div{
 				text-align: center;
@@ -26,7 +25,6 @@
 				var curMonth = date.getMonth()+1;
 				var curDay = date.getDate();
 				for(var i = 0 ; i < 7 ; i ++){
-					curDay += 1;
 					if(curMonth == 2){
 						if(curDay > 28){
 							curDay -= 28;
@@ -47,6 +45,7 @@
 						curMonth -= 12;
 					}
 					document.getElementById("d"+i).value = curMonth.toString()+"/"+curDay.toString();
+					curDay += 1;
 				}
 			}	
 		</script>
