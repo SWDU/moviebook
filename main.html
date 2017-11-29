@@ -4,40 +4,25 @@
 		<title> TEAM PROJECT "MOVIE BOOKING WEBSITE" </title>
 		<style>
 			#header-title{
-				background-color: red;
-				height: 130px;
-				width: 98%;
-				text-align: right;
-				padding: 1%;
+				background-color: red; height: 130px; width: 98%; text-align: right; padding: 1%;
 			}
 			#header-sub{
-				background-color: yellow;
-				height: 100px;
-				width: 100%;
-				text-align: center;
+				background-color: yellow; height: 100px; width: 100%; text-align: center;
 			}
 			#content{
-				background-color: blue;
-				height: 1000px;
-				width: 100%;
-				text-align: center;
+				background-color: blue; height: 1000px;	width: 100%; text-align: center;
 			}
 			#footer{
-				background-color: aqua;
-				height: 100px;
-				text-align: right;
-				display: table;
-				width: 100%;
+				background-color: aqua;	height: 100px; width: 100%; text-align: right; display: table;
 			}
 			#mem-info{
-				display: table-cell;
-				vertical-align: middle;
-				padding-right: 30px;
+				display: table-cell; vertical-align: middle; padding-right: 30px;
 			}
 			button.sub{
-				width: 200px;
-				height: 50px;
-				font-size: 18px;
+				width: 200px; height: 50px;	font-size: 18px;
+			}
+			#content-iframe{
+				width: 100%; height: 100%;
 			}
 		</style>
 		<script>
@@ -45,8 +30,7 @@
 				alert('signInClick success!');
 			}
 			function signUpClick(){
-				
-				window.location.href = 'signup.html';
+				alert('signUpClick success!');
 			}
 			function myPageClick(){
 				alert('myPageClick success!');
@@ -75,8 +59,8 @@
 			<button class="sub" onclick="movieTimeTable()">MOVIE-TIME TABLE</button>&nbsp&nbsp&nbsp&nbsp&nbsp
 			<button class="sub" onclick="movieBooking()">MOVIE-BOOKING</button>
 		</div>
-		<div id="content"><br/>
-			<h1>CONTENT</h1>
+		<div id="content">
+			<iframe id="content-iframe" src="main-content.html" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 		</div>
 		<div id="footer">
 			<div id="mem-info">
