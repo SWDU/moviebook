@@ -8,7 +8,7 @@
   <title>MOVIE_ADD</title>
 </head>
 <body>
-  <h1>ADMIN MOVIE ADD</h1>
+  <h1>ADMIN MOVIE LIST ADD</h1>
   
   <a href="admin.jsp"><h3>ADMIN_MAIN</h3></a>
   <a href="<%= request.getRequestURI() %>"><h3>페이지 새로고침</h3></a>

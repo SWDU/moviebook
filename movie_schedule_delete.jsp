@@ -9,11 +9,11 @@
 </head>
  
 <body>
-  <h2>선택한 영화가 삭제되었습니다.</h2>
+  <h2>선택한 스케쥴이 삭제되었습니다.</h2>
  
   <%
-    String[] name = request.getParameterValues("name");
-    if (name != null) {
+    String[] m_nums = request.getParameterValues("m_num");
+    if (m_nums != null) {
   %>
   <%@ page import = "java.sql.*" %>
   <%
@@ -26,8 +26,8 @@
       ResultSet rset;
   %>
   <%
-      for (int i = 0; i < name.length; ++i) {
-        sqlStr = "DELETE FROM MOVIE_INFO WHERE M_NAME_KOR = '" + name[i] +"'";
+      for (int i = 0; i < m_nums.length; ++i) {
+        sqlStr = "DELETE FROM MOVIE_SCHEDULE WHERE M_NUM = " + m_nums[i];
         recordUpdated = stmt.executeUpdate(sqlStr);
       }
       stmt.close();
@@ -37,15 +37,12 @@
 
   <table border=2>
           <tr>
-            <th>영화제목(한글)</th>
-            <th>영화제목(영어)</th>
-            <th>러닝타임</th>
-            <th>감독</th>
-            <th>관람가</th>
-            <th>장르</th>
-            <th>배우1</th>
-            <th>배우2</th>
-            <th>포스터 파일명</th>
+            <th>상영영화번호</th>
+            <th>영화제목</th>
+            <th>상영관</th>
+            <th>상영시간</th>
+            <th>상영날짜</th>
+            <th>남은 좌석수</th>
           </tr>
   <%
   	Class.forName("com.mysql.jdbc.Driver");
@@ -56,22 +53,19 @@
 	int recordUpdated;
 	ResultSet rset;
 
-  	sqlStr = "SELECT * FROM MOVIE_INFO";
+  	sqlStr = "SELECT * FROM MOVIE_SCHEDULE";
 	rset = stmt.executeQuery(sqlStr);
 
       while (rset.next()) {
-        String m_name_kor = rset.getString("M_NAME_KOR");
+        int m_num = rset.getInt("M_NUM");
   %>
           <tr>
+            <td><%= rset.getString("M_NUM") %></td>
             <td><%= rset.getString("M_NAME_KOR") %></td>
-            <td><%= rset.getString("M_NAME_ENG") %></td>
-            <td><%= rset.getString("M_RUNNINGTIME") %></td>
-            <td><%= rset.getString("M_DIRECTOR") %></td>
-            <td><%= rset.getString("M_AGE") %></td>
-            <td><%= rset.getString("M_GENRE") %></td>
-            <td><%= rset.getString("M_ACTOR1") %></td>
-            <td><%= rset.getString("M_ACTOR2") %></td>
-            <td><%= rset.getString("M_POSTER") %></td>
+            <td><%= rset.getString("THEATER") %></td>
+            <td><%= rset.getString("M_TIME") %></td>
+            <td><%= rset.getString("M_DATE") %></td>
+            <td><%= rset.getString("LEFT_SEAT") %></td>
           </tr>
   <%
       	}
