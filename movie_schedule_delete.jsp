@@ -20,13 +20,21 @@
                Class.forName("com.mysql.jdbc.Driver");
       Connection conn = DriverManager.getConnection(
           "jdbc:mysql://localhost:3306/movie_database", "sangwook", "qwer1234"); 
-      Statement stmt = conn.createStatement();
+      Statement stmt = conn.createStatement(), stmt2 = conn.createStatement();
       String sqlStr;
       int recordUpdated;
       ResultSet rset;
   %>
   <%
       for (int i = 0; i < m_nums.length; ++i) {
+        sqlStr = "SELECT * FROM SEATS WHERE M_NUM="+m_nums[i];
+        rset = stmt.executeQuery(sqlStr);
+        while(rset.next()){
+          int m_num = rset.getInt("M_NUM");
+          sqlStr = "DELETE FROM SEATS WHERE M_NUM="+m_num;
+          stmt2.executeUpdate(sqlStr);
+        }
+
         sqlStr = "DELETE FROM MOVIE_SCHEDULE WHERE M_NUM = " + m_nums[i];
         recordUpdated = stmt.executeUpdate(sqlStr);
       }
