@@ -6,16 +6,25 @@
 <html>
 <head>
   <title>ADMIN</title>
+  <link rel="stylesheet"  type="text/css" href="admin_CSS.css" /> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <!-- from https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_buttons_colors -->
+  <style>
+  .w3-button {width:200px;}
+  </style>
 </head>
 <body>
   <h1>ADMIN MOVIE SCHEDULE LIST/DELETE</h1>
 
-  <a href="admin.jsp"><h3>ADMIN_MAIN</h3></a>
-  <a href="<%= request.getRequestURI() %>"><h3>페이지 새로고침</h3></a>
+  <p class="left_float"><button class="w3-button w3-grey"><a href="admin.jsp">ADMIN_MAIN</a></button></p>
+  <p class="left_float"><button class="w3-button w3-grey"><a href="<%= request.getRequestURI() %>">페이지 새로고침</a></button></p>
+  <br>
 
   <form method="post">
-     영화제목을 입력하여 리스트를 불러오세요.( 이름, 영화번호, 날짜, 상영관 순으로 정렬됩니다.)    <input type="text" name="title"><br>
-    <input type="submit" value="검색">
+    <p>영화제목을 입력하여 리스트를 불러오세요.( 이름, 영화번호, 날짜, 상영관 순으로 정렬됩니다.)</p>
+    <input class="left_float" type="text" name="title">
+    <input class="left_float" type="submit" value="검색">
+    <br><br>
   </form>
  
   <%
@@ -39,27 +48,30 @@
       <hr>
       <form method="post" action="movie_schedule_delete.jsp">
         <table border=2>
-          <tr>
-          	<th>선택</th>
-            <th>상영영화번호</th>
-            <th>영화제목</th>
-            <th>상영관</th>
-            <th>상영시간</th>
-            <th>상영날짜</th>
-            <th>남은 좌석수</th>
+          <tr class="type2">
+          	<th><p>선택</p></th>
+            <th><p>상영영화번호</p></th>
+            <th><p>영화제목</p></th>
+            <th><p>상영관</p></th>
+            <th><p>상영시간</p></th>
+            <th><p>상영날짜</p></th>
+            <th><p>남은 좌석수</p></th>
           </tr>
   <%
+      int cnt=0;
       while (rset.next()) {
         int m_num = rset.getInt("M_NUM");
+        cnt++;
+        cnt%=2;
   %>
-          <tr>
-          	<td><input type="checkbox" name="m_num" value="<%= m_num %>"></td>
-            <td><%= rset.getString("M_NUM") %></td>
-            <td><%= rset.getString("M_NAME_KOR") %></td>
-            <td><%= rset.getString("THEATER") %></td>
-            <td><%= rset.getString("M_TIME") %></td>
-            <td><%= rset.getString("M_DATE") %></td>
-            <td><%= rset.getString("LEFT_SEAT") %></td>
+          <tr class="type<%=cnt%>">
+          	<td><p class="table_value"><input type="checkbox" name="m_num" value="<%= m_num %>"></p></td>
+            <td><p class="table_value"><%= rset.getString("M_NUM") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_NAME_KOR") %></p></td>
+            <td><p class="table_value"><%= rset.getString("THEATER") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_TIME") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_DATE") %></p></td>
+            <td><p class="table_value"><%= rset.getString("LEFT_SEAT") %></p></td>
           </tr>
   <%
       }

@@ -6,10 +6,17 @@
 <html>
 <head>
   <title>영화 추가화면</title>
+  <link rel="stylesheet"  type="text/css" href="admin_CSS.css" /> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <!-- from https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_buttons_colors -->
+  <style>
+  .w3-button {width:200px;}
+  </style>
 </head>
  
 <body>
   <h2>영화가 추가되었습니다.</h2>
+  <p class="left_float"><button class="w3-button w3-grey"><a href="admin.jsp">ADMIN_MAIN</a></button></p>
  
   <%
     String[] m_name_kor = request.getParameterValues("m_name_kor");
@@ -51,6 +58,5 @@
     }
   %>
   </table>
-  <a href="admin.jsp"><h3>ADMIN MAIN</h3></a>
 </body>
 </html>

@@ -6,10 +6,17 @@
 <html>
 <head>
   <title>삭제처리 화면.</title>
+  <link rel="stylesheet"  type="text/css" href="admin_CSS.css" /> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <!-- from https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_buttons_colors -->
+  <style>
+  .w3-button {width:200px;}
+  </style>
 </head>
  
 <body>
   <h2>선택한 영화가 삭제되었습니다.</h2>
+  <p><button class="w3-button w3-grey"><a href="admin.jsp">ADMIN_MAIN</a></button></p>
  
   <%
     String[] name = request.getParameterValues("name");
@@ -47,16 +54,16 @@
   %>
 
   <table border=2>
-          <tr>
-            <th>영화제목(한글)</th>
-            <th>영화제목(영어)</th>
-            <th>러닝타임</th>
-            <th>감독</th>
-            <th>관람가</th>
-            <th>장르</th>
-            <th>배우1</th>
-            <th>배우2</th>
-            <th>포스터 파일명</th>
+          <tr class="type2">
+            <th><p>영화제목(한글)</p></th>
+            <th><p>영화제목(영어)</p></th>
+            <th><p>러닝타임</p></th>
+            <th><p>감독</p></th>
+            <th><p>관람가</p></th>
+            <th><p>장르</p></th>
+            <th><p>배우1</p></th>
+            <th><p>배우2</p></th>
+            <th><p>포스터 파일명</p></th>
           </tr>
   <%
   	Class.forName("com.mysql.jdbc.Driver");
@@ -70,19 +77,22 @@
   	sqlStr = "SELECT * FROM MOVIE_INFO";
 	rset = stmt.executeQuery(sqlStr);
 
+      int cnt=0;
       while (rset.next()) {
         String m_name_kor = rset.getString("M_NAME_KOR");
+        cnt++;
+        cnt%=2;
   %>
-          <tr>
-            <td><%= rset.getString("M_NAME_KOR") %></td>
-            <td><%= rset.getString("M_NAME_ENG") %></td>
-            <td><%= rset.getString("M_RUNNINGTIME") %></td>
-            <td><%= rset.getString("M_DIRECTOR") %></td>
-            <td><%= rset.getString("M_AGE") %></td>
-            <td><%= rset.getString("M_GENRE") %></td>
-            <td><%= rset.getString("M_ACTOR1") %></td>
-            <td><%= rset.getString("M_ACTOR2") %></td>
-            <td><%= rset.getString("M_POSTER") %></td>
+          <tr class="type<%=cnt%>">
+            <td><p class="table_value"><%= rset.getString("M_NAME_KOR") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_NAME_ENG") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_RUNNINGTIME") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_DIRECTOR") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_AGE") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_GENRE") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_ACTOR1") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_ACTOR2") %></p></td>
+            <td><p class="table_value"><%= rset.getString("M_POSTER") %></p></td>
           </tr>
   <%
       	}
@@ -90,6 +100,5 @@
   %>
         </table>
 
-  <a href="admin.jsp"><h3>ADMIN_MAIN</h3></a>
 </body>
 </html>

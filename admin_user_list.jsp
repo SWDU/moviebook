@@ -6,16 +6,26 @@
 <html>
 <head>
   <title>ADMIN</title>
+  <link rel="stylesheet"  type="text/css" href="admin_CSS.css" /> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <!-- from https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_buttons_colors -->
+  <style>
+  .w3-button {width:300px;}
+  </style>
 </head>
 <body>
+  <div class="w3-container">
   <h1>ADMIN WINDOW</h1>
 
-  <a href="admin.jsp"><h3>ADMIN_MAIN</h3></a>
-  <a href="<%= request.getRequestURI() %>"><h3>페이지 새로고침</h3></a>
+  <p class="left_float"><button class="w3-button w3-grey"><a href="admin.jsp">ADMIN_MAIN</a></button></p>
+  <p class="left_float"><button class="w3-button w3-grey"><a href="<%= request.getRequestURI() %>">페이지 새로고침</a></button></p>
+  <br>
 
   <form method="post">
-     찾고자하는 회원 아이디를 적어주세요. :    <input type="text" name="title"><br>
-    <input type="submit" value="검색">
+    <p> 찾고자하는 회원 아이디를 적어주세요.<p>
+    <input class="left_float" type="text" name="title">
+    <input class="left_float" type="submit" value="검색">
+    <br><br>
   </form>
  
   <%
@@ -38,27 +48,29 @@
   %>
       <hr>
         <table border=2>
-          <tr>
-            <th>회원번호</th>
-            <th>아이디</th>
-            <th>비밀번호</th>
-            <th>이름</th>
-            <th>폰번호</th>
-            <th>예매횟수</th>
-            <th>생년월일</th>
+          <tr class="type2">
+            <th><p>회원번호</p></th>
+            <th><p>아이디</p></th>
+            <th><p>비밀번호</p></th>
+            <th><p>이름</p></th>
+            <th><p>폰번호</p></th>
+            <th><p>예매횟수</p></th>
+            <th><p>생년월일</p></th>
           </tr>
   <%
+      int cnt=0;
       while (rset.next()) {
-        
+          cnt++;
+          cnt%=2;
   %>
-          <tr>
-            <td><%= rset.getString("U_NUM") %></td>
-            <td><%= rset.getString("U_ID") %></td>
-            <td><%= rset.getString("U_PW") %></td>
-            <td><%= rset.getString("U_NAME") %></td>
-            <td><%= rset.getString("U_PHONE") %></td>
-            <td><%= rset.getString("U_BOOKING_CNT") %></td>
-            <td><%= rset.getString("U_BIRTH") %></td>
+          <tr class="type<%=cnt%>">
+            <td><p class="table_value"><%= rset.getString("U_NUM") %></p></td>
+            <td><p class="table_value"><%= rset.getString("U_ID") %></p></td>
+            <td><p class="table_value"><%= rset.getString("U_PW") %></p></td>
+            <td><p class="table_value"><%= rset.getString("U_NAME") %></p></td>
+            <td><p class="table_value"><%= rset.getString("U_PHONE") %></p></td>
+            <td><p class="table_value"><%= rset.getString("U_BOOKING_CNT") %></p></td>
+            <td><p class="table_value"><%= rset.getString("U_BIRTH") %></p></td>
           </tr>
   <%
       }
@@ -72,5 +84,6 @@
       conn.close();
     }
   %>
+</div>
 </body>
 </html>

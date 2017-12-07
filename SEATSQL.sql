@@ -1,4 +1,4 @@
-eate database if not exists movie_database;
+create database if not exists movie_database;
 use movie_database;
 
 drop table if exists SEATS;

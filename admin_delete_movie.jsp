@@ -6,6 +6,12 @@
 <html>
 <head>
   <title>ADMIN</title>
+  <link rel="stylesheet"  type="text/css" href="admin_CSS.css" /> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <!-- from https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_buttons_colors -->
+  <style>
+  .w3-button {width:200px;}
+  </style>
 </head>
 <body>
   <h1>ADMIN MOVIE LIST/DELETE</h1>
